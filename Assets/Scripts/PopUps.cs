@@ -16,6 +16,8 @@ public class PopUps : MonoBehaviour
     float movimientoInicialObjetos;
     [SerializeField]
     GameObject objetos;
+    /*[SerializeField]
+    float posicionObjetos;*/
     void Start()
     {
         
@@ -28,17 +30,22 @@ public class PopUps : MonoBehaviour
     }
     public void PopUpMenu()
     {
-        LeanTween.moveLocalY(gameObject, posicionFinal, 1f).setEase(animeCurv);
-        LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() => {
-            popUpCreacionObjetos.SetActive(false);
+        movimientoInicialObjetos = 0;
+        LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() => {
+            LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() => {
+                popUpCreacionObjetos.SetActive(false);
+            });
+            LeanTween.moveLocalY(gameObject, posicionFinal, 1f).setEase(animeCurv);
         });
-        
     }
     public void Crear()
     {
         popUpCreacionObjetos.SetActive(true);
-        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv).setOnComplete(()=> { 
-        LeanTween.moveLocalX(popUpCreacionObjetos, posicionPopUpCreaObj, 1f).setEase(animeCurv);
+        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv).setOnComplete(()=> {
+            movimientoInicialObjetos = 1000;
+            LeanTween.moveLocalX(popUpCreacionObjetos, posicionPopUpCreaObj, 1f).setEase(animeCurv).setOnComplete(() => { 
+                 LeanTween.moveLocalY(objetos, 1000, 1f).setEase(animeCurv);
+            });
         });
         
         
@@ -50,8 +57,16 @@ public class PopUps : MonoBehaviour
     }
     public void Bajar()
     {
-        movimientoInicialObjetos = movimientoInicialObjetos - 1000;
-        LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
+        
+        if (movimientoInicialObjetos <= 0)
+        {
+            movimientoInicialObjetos = 0;
+        }
+        else
+        {
+            movimientoInicialObjetos = movimientoInicialObjetos - 1000;
+            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
+        }
     }
     public void Rotar()
     {
