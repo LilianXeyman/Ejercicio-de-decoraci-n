@@ -2877,7 +2877,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 280239420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: EstanteDePan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &280239420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2998,7 +3010,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 286212179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Botella2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &286212179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3358,7 +3382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 346416855}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Botella
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &346416855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3846,7 +3882,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367726874}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Caja4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &367726874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4162,7 +4210,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392011273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Estanteria1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &392011273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4893,7 +4953,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 535383818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: RCongelador2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &535383818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6154,7 +6226,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 717663300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Caja1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &717663300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6524,7 +6608,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 754004305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Caja3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &754004305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6996,7 +7092,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 795183928}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Valla
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &795183928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7912,6 +8020,27 @@ MonoBehaviour:
   posicionPopUpCreaObj: 650
   movimientoInicialObjetos: 0
   objetos: {fileID: 1210999835}
+  ObjetoCreado:
+  - {fileID: 919132149155446097, guid: 5342d965a35bc29438c0cd0609ee0b5d, type: 3}
+  - {fileID: 919132149155446097, guid: aa79acef2da456d4e979b1facf93a58d, type: 3}
+  - {fileID: 919132149155446097, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+  - {fileID: 919132149155446097, guid: 2d29264a528e6d74db1515db02a8d914, type: 3}
+  - {fileID: 919132149155446097, guid: a01a7727b0eb42249944cfa6152fcb7b, type: 3}
+  - {fileID: 919132149155446097, guid: 0c0933e6994906c448019f812d195f07, type: 3}
+  - {fileID: 919132149155446097, guid: 405186b3fce23e84b8b0cd54e6ee8d99, type: 3}
+  - {fileID: 919132149155446097, guid: c1b488a39347c5e448df2b58e02d7618, type: 3}
+  - {fileID: 919132149155446097, guid: 73a2e9b2ed530344da7e4deec1c99666, type: 3}
+  - {fileID: 919132149155446097, guid: d108f611e3e0b404d9915560100054fa, type: 3}
+  - {fileID: 919132149155446097, guid: 3878337f9a0c82142b7a5ad597ff5ae0, type: 3}
+  - {fileID: 919132149155446097, guid: 6b7c3dc2687b1b940ad6f4f54527d567, type: 3}
+  - {fileID: 919132149155446097, guid: 4d8f05976ccaf904a971a364b1e3a70b, type: 3}
+  - {fileID: 919132149155446097, guid: 2d9f233d7f45f1940b5cf4fe4a6188ca, type: 3}
+  - {fileID: 919132149155446097, guid: 3f62ede52d3c0e1409b158afcbf4277b, type: 3}
+  - {fileID: 919132149155446097, guid: b7696d4727774db499c7ae9ed22e91a0, type: 3}
+  - {fileID: 919132149155446097, guid: 6bf412627503b5e4ba93eccf79a2fe82, type: 3}
+  - {fileID: 919132149155446097, guid: 128de4aa117c4b143b6ae39d02c34a0b, type: 3}
+  - {fileID: 919132149155446097, guid: 624dc4b8815243044a1bbd6a0d24f7fd, type: 3}
+  - {fileID: 919132149155446097, guid: bcdb90182a65012408b80b16e6c513e7, type: 3}
 --- !u!4 &893735388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e25f3a51127890a439c1b28aea57ae18, type: 3}
@@ -7999,7 +8128,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909369225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Estanteria2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &909369225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8120,7 +8261,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 910462768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Cliente
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &910462768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9183,7 +9336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1047585481}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: RetornadorDeBotellas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1047585481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9629,7 +9794,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1142057497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Caja2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1142057497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10676,7 +10853,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1262135627}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Estanteria3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1262135627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10854,7 +11043,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1273955706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: BolsaDeLaCompra
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1273955706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11176,7 +11377,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1289615324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Carrito
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1289615324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11317,7 +11530,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307309962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: CajaRegistradora
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1307309962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12850,7 +13075,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1565592609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Fruta
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1565592609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14099,7 +14336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1684761327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Puertas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1684761327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16567,7 +16816,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1974065029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890476914}
+        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+        m_MethodName: Congelador1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1974065029
 MonoBehaviour:
   m_ObjectHideFlags: 0
