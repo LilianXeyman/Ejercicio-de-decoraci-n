@@ -1400,6 +1400,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162731665}
   m_CullTransparentMesh: 1
+--- !u!1 &179432951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179432952}
+  - component: {fileID: 179432955}
+  - component: {fileID: 179432954}
+  - component: {fileID: 179432953}
+  m_Layer: 0
+  m_Name: Objetos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179432952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179432951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.819, y: 2.551, z: 3.453}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179432953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179432951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d8aaf26a0a36745bdce8e63e7d6fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animeCurv: 6
+  popUpMenu: {fileID: 890476912}
+  popUpComoSeUsa: {fileID: 1084540199}
+  tiempoAnimacion: 0.5
+  multiDelV3e: 0.75
+  multiDelV3: 1
+--- !u!114 &179432954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179432951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0298b0341ae344b8fed1dcfa9753c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animeCurv: 6
+  popUpMenu: {fileID: 890476912}
+  popUpComoSeUsa: {fileID: 454788315}
+  tiempoAnimacion: 0.5
+  multiDelV3e: 0.75
+  multiDelV3: 1
+--- !u!114 &179432955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179432951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b87b8467068b34b862ca2a24194be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animeCurv: 6
+  popUpMenu: {fileID: 890476912}
+  popUpComoSeUsa: {fileID: 273652887}
+  tiempoAnimacion: 0.5
+  multiDelV3e: 0.75
+  multiDelV3: 1
 --- !u!1 &183655066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,7 +2823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 114}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &279454511
@@ -4016,9 +4104,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 890476914}
-        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
-        m_MethodName: Rotar
+      - m_Target: {fileID: 179432955}
+        m_TargetAssemblyTypeName: Rotar, Assembly-CSharp
+        m_MethodName: "Rotaci\xF3n"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4467,7 +4555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454788316}
   m_Layer: 5
-  m_Name: InfoGirar (1)
+  m_Name: InfoBorrar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4491,7 +4579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 116}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &472659956
@@ -4778,8 +4866,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 890476914}
-        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
+      - m_Target: {fileID: 179432953}
+        m_TargetAssemblyTypeName: Movimiento, Assembly-CSharp
         m_MethodName: Mover
         m_Mode: 1
         m_Arguments:
@@ -8041,6 +8129,12 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: 128de4aa117c4b143b6ae39d02c34a0b, type: 3}
   - {fileID: 919132149155446097, guid: 624dc4b8815243044a1bbd6a0d24f7fd, type: 3}
   - {fileID: 919132149155446097, guid: bcdb90182a65012408b80b16e6c513e7, type: 3}
+  popUpInfoMover: {fileID: 1084540199}
+  popUpInfoRotar: {fileID: 273652887}
+  popUpInfoEliminar: {fileID: 454788315}
+  tiempoAnimacion: 0.5
+  multiDelV3e: 0.5
+  multiDelV3: 2
 --- !u!4 &893735388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e25f3a51127890a439c1b28aea57ae18, type: 3}
@@ -9528,7 +9622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1084540200}
   m_Layer: 5
-  m_Name: InfoGirar
+  m_Name: InfoMover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9552,7 +9646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 111}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1086105419 stripped
@@ -11819,6 +11913,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c01db0d6021c6458eb8ebe1f8245d9, type: 3}
+--- !u!1001 &1344713879
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.658
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.938
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      propertyPath: m_Name
+      value: character-employee
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
 --- !u!4 &1365276483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd9c4c6f8ee472a4bab3e9330c05428b, type: 3}
@@ -16493,9 +16644,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 890476914}
-        m_TargetAssemblyTypeName: PopUps, Assembly-CSharp
-        m_MethodName: Eliminar
+      - m_Target: {fileID: 179432954}
+        m_TargetAssemblyTypeName: Eliminar, Assembly-CSharp
+        m_MethodName: Borrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17386,3 +17537,5 @@ SceneRoots:
   - {fileID: 510566398}
   - {fileID: 754106824}
   - {fileID: 72573340}
+  - {fileID: 179432952}
+  - {fileID: 1344713879}

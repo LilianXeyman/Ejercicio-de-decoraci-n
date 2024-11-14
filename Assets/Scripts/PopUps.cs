@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PopUps : MonoBehaviour
@@ -22,6 +23,27 @@ public class PopUps : MonoBehaviour
     GameObject objetoSeleccionado;
     GameObject objetoCreadoDeVerdad;
     int selectedItem;
+
+    //Aqui se ponen los popUps que se van a emplear como fuente de información
+    [SerializeField]
+    GameObject popUpInfoMover;
+    [SerializeField]
+    GameObject popUpInfoRotar;
+    [SerializeField]
+    GameObject popUpInfoEliminar;
+
+    [SerializeField]
+    float tiempoAnimacion = 0.5f;
+
+    [SerializeField]
+    float multiDelV3e = 0.75f;
+
+    [SerializeField]
+    float multiDelV3 = 1f;
+
+    //Bool para saber si se está moviendo un objeto
+    bool moviendoObjeto;
+
     /*[SerializeField]
     float posicionObjetos;*/
     void Start()
@@ -32,11 +54,34 @@ public class PopUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (moviendoObjeto == true)
+        {
+            objetoCreadoDeVerdad.SetActive(false);
+            Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(rayo, out hit))
+            {
+                Vector3 hitPoint = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+                objetoCreadoDeVerdad.transform.position = hitPoint;
+            }
+            objetoCreadoDeVerdad.SetActive(true);
+        }
     }
     public void PopUpMenu()
     {
         movimientoInicialObjetos = 0;
+        LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3, tiempoAnimacion);
+            popUpInfoEliminar.SetActive(false);
+        });
+        LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
+            popUpInfoMover.SetActive(false);
+        });
+        LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3, tiempoAnimacion);
+            popUpInfoRotar.SetActive(false);
+        }); 
         LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() => {
             LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() => {
                 popUpCreacionObjetos.SetActive(false);
@@ -185,8 +230,12 @@ public class PopUps : MonoBehaviour
     }
     public void BotonObjeto()
     {
-
-        objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3 (11.5f,2.5f,3.26f), Quaternion.identity);
-
+        objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 2.5f, 3.26f), Quaternion.identity);
+        moviendoObjeto = true;
+        LeanTween.moveLocalY(objetos, 0, 1f).setEase(animeCurv).setOnComplete(() => {
+            LeanTween.moveLocalX(popUpCreacionObjetos, 1500, 1f).setEase(animeCurv);
+        });
     }
+    
+    
 }
