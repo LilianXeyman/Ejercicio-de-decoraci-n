@@ -65,7 +65,7 @@ public class PopUps : MonoBehaviour
     }
     public void Bajar()
     {
-        
+
         if (movimientoInicialObjetos <= 1100)
         {
             movimientoInicialObjetos = 1000;
@@ -77,17 +77,4 @@ public class PopUps : MonoBehaviour
             LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
         }
     }
-    public void Rotar()
-    {
-        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
-    }
-    public void Mover()
-    {
-        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
-    }
-    public void Eliminar()
-    {
-        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
-    }
-
 }
