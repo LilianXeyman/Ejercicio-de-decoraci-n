@@ -15,9 +15,8 @@ public class CracionDeObjetos : MonoBehaviour
     // Update is called once per frame
     public void BotonObjeto()
     {
-       if(Input.GetMouseButton(0))
-       { 
+       
         ObjetoCreado = Instantiate(gameObject, Vector3.zero, Quaternion.identity);
-       }
+       
     }
 }
