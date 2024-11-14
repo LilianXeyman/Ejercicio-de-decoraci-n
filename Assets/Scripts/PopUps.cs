@@ -52,15 +52,24 @@ public class PopUps : MonoBehaviour
     }
     public void Subir()
     {
-        movimientoInicialObjetos = movimientoInicialObjetos + 1000;
-        LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);//Me quede por aquí. El objetivo es que suban los objetos y se coloquen en el menú de cración de objetos
+        if (movimientoInicialObjetos >= 6900)
+        {
+            movimientoInicialObjetos = 7000;
+            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
+        }
+        else
+        {
+            movimientoInicialObjetos = movimientoInicialObjetos + 1000;
+            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);//Me quede por aquí. El objetivo es que suban los objetos y se coloquen en el menú de cración de objetos
+        }
     }
     public void Bajar()
     {
         
-        if (movimientoInicialObjetos <= 0)
+        if (movimientoInicialObjetos <= 1100)
         {
-            movimientoInicialObjetos = 0;
+            movimientoInicialObjetos = 1000;
+            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
         }
         else
         {
