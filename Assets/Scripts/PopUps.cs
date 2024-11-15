@@ -54,7 +54,7 @@ public class PopUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moviendoObjeto == true)
+        if (moviendoObjeto == true && objetoCreadoDeVerdad !=null)
         {
             objetoCreadoDeVerdad.SetActive(false);
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);

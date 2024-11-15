@@ -19,13 +19,35 @@ public class Movimiento : MonoBehaviour
 
     [SerializeField]
     float multiDelV3 = 2f;
-    // Start is called before the first frame update
-    void Start()
+    GameObject objetoSeleccionado;
+    bool vaAMover;
+    void Update()
     {
-        
+        if (vaAMover)
+        {
+            objetoSeleccionado.SetActive(false);
+            Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(rayo, out hit))
+            {
+                Vector3 hitPoint = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+                objetoSeleccionado.transform.position = hitPoint;
+            }
+            objetoSeleccionado.SetActive(true);
+            if (Input.GetMouseButtonUp(1))
+            {
+                vaAMover = false;
+            }
+        }
     }
-
-    // Update is called once per frame
+    private void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            objetoSeleccionado = this.gameObject;
+            Debug.Log("Objeto seleccionado para mover: " + objetoSeleccionado.name);
+        }
+    }
     public void Mover()
     {
         LeanTween.moveLocalY(popUpMenu, 0, 1f).setEase(animeCurv);
@@ -33,5 +55,6 @@ public class Movimiento : MonoBehaviour
         LeanTween.scale(popUpComoSeUsa, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
             LeanTween.scale(popUpComoSeUsa, Vector3.one * multiDelV3, tiempoAnimacion);
         });
+        vaAMover = true;
     }
 }
