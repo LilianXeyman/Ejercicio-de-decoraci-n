@@ -65,6 +65,10 @@ public class PopUps : MonoBehaviour
                 objetoCreadoDeVerdad.transform.position = hitPoint;
             }
             objetoCreadoDeVerdad.SetActive(true);
+            if (Input.GetMouseButtonUp(0))
+            {
+                moviendoObjeto = false;
+            }
         }
     }
     public void PopUpMenu()
@@ -98,8 +102,6 @@ public class PopUps : MonoBehaviour
                 LeanTween.moveLocalY(objetos, 1000, 1f).setEase(animeCurv);
             });
         });
-
-
     }
     public void Subir()
     {
@@ -235,7 +237,5 @@ public class PopUps : MonoBehaviour
         LeanTween.moveLocalY(objetos, 0, 1f).setEase(animeCurv).setOnComplete(() => {
             LeanTween.moveLocalX(popUpCreacionObjetos, 1500, 1f).setEase(animeCurv);
         });
-    }
-    
-    
+    }  
 }
