@@ -4560,7 +4560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &454788316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6436,6 +6436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746514234}
+  - component: {fileID: 746514235}
   m_Layer: 0
   m_Name: Extructura externa supermarket
   m_TagString: Untagged
@@ -6480,6 +6481,27 @@ Transform:
   - {fileID: 394851836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &746514235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746514233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &752827799
 GameObject:
   m_ObjectHideFlags: 0
@@ -8860,8 +8882,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Para mover un objeto clica en \xE9l y usa el rat\xF3n para colocarlo donde
-    quieras. Para volverlo a colocar clica nuevamente sobre el objeto"
+  m_text: "Para mover un objeto clica sobre \xE9l con el bot\xF3n izquierdo y usa
+    el rat\xF3n para colocarlo donde quieras. Para volverlo a colocar clica con el
+    bot\xF3n derecho sobre el objeto"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 364d6d7b0a8ceef43b9b6607a32f0574, type: 2}
   m_sharedMaterial: {fileID: 8140021271893571579, guid: 364d6d7b0a8ceef43b9b6607a32f0574, type: 2}
@@ -11968,7 +11991,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2091974128}
   m_SourcePrefab: {fileID: 100100000, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
 --- !u!4 &1365276483 stripped
 Transform:
@@ -15437,6 +15463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796748824}
+  - component: {fileID: 1796748825}
   m_Layer: 0
   m_Name: Suelo Supermercado
   m_TagString: Untagged
@@ -15509,6 +15536,28 @@ Transform:
   - {fileID: 779262898}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1796748825
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796748823}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1805739612
 GameObject:
   m_ObjectHideFlags: 0
@@ -17313,6 +17362,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e25f3a51127890a439c1b28aea57ae18, type: 3}
   m_PrefabInstance: {fileID: 548693633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2091974126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84ae5e9768593f94ba83f382a7f0e4bf, type: 3}
+  m_PrefabInstance: {fileID: 1344713879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2091974128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091974126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 0.8, z: 0.5}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1 &2097574091
 GameObject:
   m_ObjectHideFlags: 0
