@@ -21,6 +21,8 @@ public class Movimiento : MonoBehaviour
     float multiDelV3 = 2f;
     GameObject objetoSeleccionado;
     bool vaAMover;
+
+    bool popUpMenu1 = true;
     void Update()
     {
         if (vaAMover)
@@ -50,6 +52,7 @@ public class Movimiento : MonoBehaviour
     }
     public void Mover()
     {
+        popUpMenu1 = true;
         LeanTween.moveLocalY(popUpMenu, 0, 1f).setEase(animeCurv);
         popUpComoSeUsa.SetActive(true);
         LeanTween.scale(popUpComoSeUsa, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {

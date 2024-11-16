@@ -21,6 +21,8 @@ public class Eliminar : MonoBehaviour
     float multiDelV3 = 2f;
     GameObject objetoSeleccionado;
     bool vaAEliminar;
+
+    bool popUpMenu1 = true;
     // Start is called before the first frame update
     void Update()
     {
@@ -44,6 +46,7 @@ public class Eliminar : MonoBehaviour
     }
     public void Borrar()
     {
+        popUpMenu1 = true;
         LeanTween.moveLocalY(popUpMenu, 0, 1f).setEase(animeCurv);
         popUpComoSeUsa.SetActive(true);
         LeanTween.scale(popUpComoSeUsa, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {

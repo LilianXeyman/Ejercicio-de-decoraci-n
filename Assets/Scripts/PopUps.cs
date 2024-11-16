@@ -17,6 +17,10 @@ public class PopUps : MonoBehaviour
     float movimientoInicialObjetos;
     [SerializeField]
     GameObject objetos;
+    bool popUpMenu1;
+    Rotar rotarxd;
+    Eliminar eliminarxd;
+    Movimiento movimientoxd;
 
     //Para la creación de los objetos se hará una lista (array) con todos ellos. 
     public GameObject[] ObjetoCreado;
@@ -43,12 +47,14 @@ public class PopUps : MonoBehaviour
 
     //Bool para saber si se está moviendo un objeto
     bool moviendoObjeto;
-
+    [SerializeField]
+    
     /*[SerializeField]
     float posicionObjetos;*/
     void Start()
     {
-
+        moviendoObjeto = false;
+        popUpMenu1 = true;
     }
 
     // Update is called once per frame
@@ -73,28 +79,43 @@ public class PopUps : MonoBehaviour
     }
     public void PopUpMenu()
     {
-        movimientoInicialObjetos = 0;
-        LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
-            LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3, tiempoAnimacion);
-            popUpInfoEliminar.SetActive(false);
-        });
-        LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
-            LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
-            popUpInfoMover.SetActive(false);
-        });
-        LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
-            LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3, tiempoAnimacion);
-            popUpInfoRotar.SetActive(false);
-        }); 
-        LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() => {
-            LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() => {
-                popUpCreacionObjetos.SetActive(false);
+        if (popUpMenu1 == true)
+        {
+            movimientoInicialObjetos = 0;
+            LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() =>
+            {
+                LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3, tiempoAnimacion);
+                popUpInfoEliminar.SetActive(false);
             });
-            LeanTween.moveLocalY(gameObject, posicionFinal, 1f).setEase(animeCurv);
-        });
+            LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() =>
+            {
+                LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
+                popUpInfoMover.SetActive(false);
+            });
+            LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() =>
+            {
+                LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3, tiempoAnimacion);
+                popUpInfoRotar.SetActive(false);
+            });
+            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() =>
+            {
+                LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() =>
+                {
+                    popUpCreacionObjetos.SetActive(false);
+                });
+                LeanTween.moveLocalY(gameObject, posicionFinal, 1f).setEase(animeCurv);
+            });
+            popUpMenu1 = false;
+        }
+        else
+        {
+            LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
+            popUpMenu1 = true;
+        }    
     }
     public void Crear()
     {
+        popUpMenu1 = true;
         popUpCreacionObjetos.SetActive(true);
         LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv).setOnComplete(() => {
             movimientoInicialObjetos = 1000;
