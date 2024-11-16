@@ -23,7 +23,7 @@ public class Rotar : MonoBehaviour
     GameObject objetoSeleccionado;
     bool estaRotando=false;
 
-    bool popUpMenu1=true;
+    
     // Start is called before the first frame update
     void Update()
     {
@@ -55,7 +55,7 @@ public class Rotar : MonoBehaviour
     }
     public void Rotacion()
     {
-        popUpMenu1 = true;
+        
         LeanTween.moveLocalY(popUpMenu, 0, 1f).setEase(animeCurv);//Falta hacer referencia a que solo haga este movimiento el objeto que hayas clicado previamente
         popUpComoSeUsa.SetActive(true);
         LeanTween.scale(popUpComoSeUsa, Vector3.one*multiDelV3e, tiempoAnimacion).setOnComplete(() => {
