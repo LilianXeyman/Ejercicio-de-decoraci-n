@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PopUps : MonoBehaviour
 {
+    //Variables para los popUps
     [SerializeField]
     float posicionFinal;
     [SerializeField]
@@ -18,9 +19,6 @@ public class PopUps : MonoBehaviour
     [SerializeField]
     GameObject objetos;
     bool popUpMenu1;
-    Rotar rotarxd;
-    Eliminar eliminarxd;
-    Movimiento movimientoxd;
 
     //Para la creación de los objetos se hará una lista (array) con todos ellos. 
     public GameObject[] ObjetoCreado;
@@ -45,22 +43,25 @@ public class PopUps : MonoBehaviour
     [SerializeField]
     float multiDelV3 = 1f;
 
-    //Bool para saber si se está moviendo un objeto
+    //Bool para saber si se está moviendo un objeto, eliminarlo y rotarlo
     bool moviendoObjeto;
-    [SerializeField]
-    
-    /*[SerializeField]
-    float posicionObjetos;*/
+    bool vaAMover = false;
+    bool estaRotando = false;
+    bool vaAEliminar = false;
+
     void Start()
     {
         moviendoObjeto = false;
+        vaAMover = false;
+        estaRotando=false;
+        vaAEliminar=false;
         popUpMenu1 = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moviendoObjeto == true && objetoCreadoDeVerdad !=null)
+        /*if (moviendoObjeto == true && objetoCreadoDeVerdad !=null)
         {
             objetoCreadoDeVerdad.SetActive(false);
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -74,6 +75,60 @@ public class PopUps : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 moviendoObjeto = false;
+            }
+        }*/
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.transform.CompareTag("Seleccion"))
+                {
+                    objetoSeleccionado = hit.transform.gameObject;
+                    Debug.Log("Objeto seleccionado: " + objetoSeleccionado.name);
+                }
+            }
+        }
+        //Este es el UpDate para Rotar
+        if (estaRotando == true)
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                objetoSeleccionado.transform.Rotate(0, -1, 0);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                objetoSeleccionado.transform.Rotate(0, 1, 0);
+            }
+            /*if (Input.GetMouseButtonDown(1))
+            {
+                estaRotando = false;
+            }*/
+        }
+        //Este es el Update para Eliminar
+        if (vaAEliminar)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                Destroy(objetoSeleccionado);
+                //vaAEliminar = false;
+            }
+        }
+        //Este es el Update para Mover los objetos
+        if (vaAMover)
+        {
+            objetoSeleccionado.SetActive(false);
+            Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(rayo, out hit))
+            {
+                Vector3 hitPoint = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+                objetoSeleccionado.transform.position = hitPoint;
+            }
+            objetoSeleccionado.SetActive(true);
+            if (Input.GetMouseButtonUp(1))
+            {
+                vaAMover = false;
             }
         }
     }
@@ -106,14 +161,16 @@ public class PopUps : MonoBehaviour
                 LeanTween.moveLocalY(gameObject, posicionFinal, 1f).setEase(animeCurv);
             });
             popUpMenu1 = false;
+            vaAEliminar = false;
+            estaRotando = false;
+            vaAMover = false;
         }
         else
         {
             LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
-            popUpMenu1 = true;
         }    
     }
-    public void Crear()
+    public void Crear()//Botón para abrir el desplegable de la creación de objetos
     {
         popUpMenu1 = true;
         popUpCreacionObjetos.SetActive(true);
@@ -124,7 +181,7 @@ public class PopUps : MonoBehaviour
             });
         });
     }
-    public void Subir()
+    public void Subir()//Botones control del scroll
     {
         if (movimientoInicialObjetos >= 6900)
         {
@@ -151,7 +208,7 @@ public class PopUps : MonoBehaviour
             LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
         }
     }
-    public void RetornadorDeBotellas()
+    public void RetornadorDeBotellas()//Lista de itemes para la creación de objetos
     {
         selectedItem = 0;
         BotonObjeto();
@@ -251,12 +308,39 @@ public class PopUps : MonoBehaviour
         selectedItem = 19;
         BotonObjeto();
     }
-    public void BotonObjeto()
+    public void BotonObjeto()//Botón para crear el objeto seleccionado en el scroll. Por alguna razón hay objetos que se me crean en el vector y otros que no
     {
-        objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 3f, 3.26f), Quaternion.identity);
+        objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 5f, 3.26f), Quaternion.identity);
         moviendoObjeto = true;
-        LeanTween.moveLocalY(objetos, 0, 1f).setEase(animeCurv).setOnComplete(() => {
-            LeanTween.moveLocalX(popUpCreacionObjetos, 1500, 1f).setEase(animeCurv);
+    }
+    public void Rotacion()//Botón para rotar el objeto
+    {
+        popUpMenu1 = true;
+        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);//Falta hacer referencia a que solo haga este movimiento el objeto que hayas clicado previamente
+        popUpInfoRotar.SetActive(true);
+        LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3, tiempoAnimacion);
         });
-    }  
+        estaRotando = true;
+    }
+    public void Borrar()//Botón para Eliminar objetos
+    {
+        popUpMenu1 = true;
+        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
+        popUpInfoEliminar.SetActive(true);
+        LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoEliminar, Vector3.one * multiDelV3, tiempoAnimacion);
+        });
+        vaAEliminar = true;
+    }
+    public void Mover()//Botón para mover un objeto
+    {
+        popUpMenu1 = true;
+        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
+        popUpInfoMover.SetActive(true);
+        LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
+        });
+        vaAMover = true;
+    }
 }
