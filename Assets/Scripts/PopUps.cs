@@ -253,7 +253,7 @@ public class PopUps : MonoBehaviour
     }
     public void BotonObjeto()
     {
-        objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 2.5f, 3.26f), Quaternion.identity);
+        objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 3f, 3.26f), Quaternion.identity);
         moviendoObjeto = true;
         LeanTween.moveLocalY(objetos, 0, 1f).setEase(animeCurv).setOnComplete(() => {
             LeanTween.moveLocalX(popUpCreacionObjetos, 1500, 1f).setEase(animeCurv);

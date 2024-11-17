@@ -27,32 +27,36 @@ public class Rotar : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (estaRotando==true && objetoSeleccionado != null)
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.transform.CompareTag("Seleccion"))
+                {
+                    objetoSeleccionado = hit.transform.gameObject;
+                    Debug.Log("Objeto seleccionado: "+ objetoSeleccionado.name);
+                }
+            }
+        }
+        if (estaRotando == true)
         {
             if (Input.GetKey(KeyCode.Q))
             {
-                transform.Rotate(0, -1, 0);
+                objetoSeleccionado.transform.Rotate(0, -1, 0);
             }
             if (Input.GetKey(KeyCode.E))
             {
-                transform.Rotate(0, 1, 0);
+                objetoSeleccionado.transform.Rotate(0, 1, 0);
             }
         }
-        if (Input.GetMouseButtonDown(0))
-        { 
-           estaRotando = false;
+        if (Input.GetMouseButtonDown(1))
+        {
+            estaRotando = false;
         }
     }
 
     // Update is called once per frame
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        { 
-            objetoSeleccionado=this.gameObject;
-            Debug.Log("Objeto seleccionado para rotar: " + objetoSeleccionado.name);
-        }
-    }
     public void Rotacion()
     {
         

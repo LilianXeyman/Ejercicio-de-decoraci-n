@@ -25,6 +25,18 @@ public class Movimiento : MonoBehaviour
   
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.transform.CompareTag("Seleccion"))
+                {
+                    objetoSeleccionado = hit.transform.gameObject;
+                    Debug.Log("Objeto seleccionado: " + objetoSeleccionado.name);
+                }
+            }
+        }
         if (vaAMover)
         {
             objetoSeleccionado.SetActive(false);
@@ -40,14 +52,6 @@ public class Movimiento : MonoBehaviour
             {
                 vaAMover = false;
             }
-        }
-    }
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            objetoSeleccionado = this.gameObject;
-            Debug.Log("Objeto seleccionado para mover: " + objetoSeleccionado.name);
         }
     }
     public void Mover()

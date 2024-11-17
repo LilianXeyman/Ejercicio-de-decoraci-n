@@ -26,24 +26,28 @@ public class Eliminar : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.transform.CompareTag("Seleccion"))
+                {
+                    objetoSeleccionado = hit.transform.gameObject;
+                    Debug.Log("Objeto seleccionado: " + objetoSeleccionado.name);
+                }
+            }
+        }
         if (vaAEliminar)
         {
             if (Input.GetMouseButtonDown(1))
             {
                 Destroy(objetoSeleccionado);
+                vaAEliminar = false;
             }
         }
     }
-
     // Update is called once per frame
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            objetoSeleccionado = this.gameObject;
-            Debug.Log("Objeto seleccionado para eliminar: " + objetoSeleccionado.name);
-        }
-    }
     public void Borrar()
     {
        
