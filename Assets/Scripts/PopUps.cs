@@ -77,18 +77,18 @@ public class PopUps : MonoBehaviour
                 moviendoObjeto = false;
             }
         }*/
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.transform.CompareTag("Seleccion"))
-                {
-                    objetoSeleccionado = hit.transform.gameObject;
-                    Debug.Log("Objeto seleccionado: " + objetoSeleccionado.name);
-                }
+                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                 if (Physics.Raycast(ray, out RaycastHit hit))
+                 {
+                     if (hit.transform.CompareTag("Seleccion"))
+                     {
+                         objetoSeleccionado = hit.transform.gameObject;
+                         Debug.Log("Objeto seleccionado: " + objetoSeleccionado.name);
+                     }
+                 }
             }
-        }
         //Este es el UpDate para Rotar
         if (estaRotando == true)
         {
@@ -115,7 +115,7 @@ public class PopUps : MonoBehaviour
             }
         }
         //Este es el Update para Mover los objetos
-        if (vaAMover)
+        if (vaAMover)//Mirar esto para mejorar
         {
             objetoSeleccionado.SetActive(false);
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -129,6 +129,11 @@ public class PopUps : MonoBehaviour
             if (Input.GetMouseButtonUp(1))
             {
                 vaAMover = false;
+                LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion).setOnComplete(() =>
+                {
+                    popUpInfoMover.SetActive(false);
+                });
+                
             }
         }
     }
