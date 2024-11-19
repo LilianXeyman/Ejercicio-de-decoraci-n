@@ -61,7 +61,7 @@ public class PopUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (moviendoObjeto == true && objetoCreadoDeVerdad !=null)
+        /*if (moviendoObjeto == true && objetoCreadoDeVerdad !=null)  // Esto sería para que una vez seleccionado el objeto se te moviera siguiendo el ratón pero no me funciona.
         {
             objetoCreadoDeVerdad.SetActive(false);
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -115,7 +115,7 @@ public class PopUps : MonoBehaviour
             }
         }
         //Este es el Update para Mover los objetos
-        if (vaAMover)//Mirar esto para mejorar
+        if (vaAMover)
         {
             objetoSeleccionado.SetActive(false);
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -131,13 +131,13 @@ public class PopUps : MonoBehaviour
                 vaAMover = false;
                 LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion).setOnComplete(() =>
                 {
+                    LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
                     popUpInfoMover.SetActive(false);
                 });
-                
             }
         }
     }
-    public void PopUpMenu()
+    public void PopUpMenu()// PopUp del menú y para reestablecer a los datos iniciales
     {
         if (popUpMenu1 == true)
         {
@@ -196,7 +196,7 @@ public class PopUps : MonoBehaviour
         else
         {
             movimientoInicialObjetos = movimientoInicialObjetos + 1000;
-            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);//Me quede por aquí. El objetivo es que suban los objetos y se coloquen en el menú de cración de objetos
+            LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv);
         }
     }
     public void Bajar()
@@ -317,11 +317,18 @@ public class PopUps : MonoBehaviour
     {
         objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 5f, 3.26f), Quaternion.identity);
         moviendoObjeto = true;
+        movimientoInicialObjetos = 0;
+        LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() =>{
+            LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() =>
+            {
+                popUpCreacionObjetos.SetActive(false);
+            });
+        });
     }
     public void Rotacion()//Botón para rotar el objeto
     {
         popUpMenu1 = true;
-        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);//Falta hacer referencia a que solo haga este movimiento el objeto que hayas clicado previamente
+        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
         popUpInfoRotar.SetActive(true);
         LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
             LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3, tiempoAnimacion);
