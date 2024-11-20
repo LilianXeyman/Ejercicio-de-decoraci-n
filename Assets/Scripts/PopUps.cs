@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PopUps : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class PopUps : MonoBehaviour
     GameObject objetoSeleccionado;
     GameObject objetoCreadoDeVerdad;
     int selectedItem;
+    [SerializeField]
+    LeanTweenType animCreaObjet;
+    [SerializeField]
+    float rotationBorrar;
 
     //Aqui se ponen los popUps que se van a emplear como fuente de información
     [SerializeField]
@@ -110,7 +115,10 @@ public class PopUps : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                Destroy(objetoSeleccionado);
+                LeanTween.rotateY(objetoCreadoDeVerdad, objetoCreadoDeVerdad.transform.rotation.y + rotationBorrar, 2f).setEase(animCreaObjet);
+                    LeanTween.scale(objetoCreadoDeVerdad, Vector3.one * 0.1f, 2f).setEase(animCreaObjet).setOnComplete(() => {
+                          Destroy(objetoSeleccionado);
+                    });
                 //vaAEliminar = false;
             }
         }
@@ -173,6 +181,7 @@ public class PopUps : MonoBehaviour
         else
         {
             LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
+            popUpMenu1= true;
         }    
     }
     public void Crear()//Botón para abrir el desplegable de la creación de objetos
@@ -316,6 +325,9 @@ public class PopUps : MonoBehaviour
     public void BotonObjeto()//Botón para crear el objeto seleccionado en el scroll. Por alguna razón hay objetos que se me crean en el vector y otros que no
     {
         objetoCreadoDeVerdad = Instantiate(ObjetoCreado[selectedItem], new Vector3(11.5f, 5f, 3.26f), Quaternion.identity);
+        LeanTween.scale(objetoCreadoDeVerdad, Vector3.one*0.5f, 0f).setEase(animCreaObjet).setOnComplete(() =>{
+            LeanTween.scale(objetoCreadoDeVerdad, Vector3.one*multiDelV3, 1f).setEase(animCreaObjet);
+        });
         moviendoObjeto = true;
         movimientoInicialObjetos = 0;
         LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() =>{

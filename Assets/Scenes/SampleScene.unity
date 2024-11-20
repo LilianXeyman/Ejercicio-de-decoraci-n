@@ -8597,6 +8597,8 @@ MonoBehaviour:
   - {fileID: 7773014438543857063, guid: a02f549f59317fd428adde5786af5824, type: 3}
   - {fileID: 3551104371282739126, guid: 9df7efeaa4f4b9d40bccade5f8ca714d, type: 3}
   - {fileID: 6345192988161496003, guid: 557f5ace1231cb043ae6df4fe0fdd487, type: 3}
+  animCreaObjet: 30
+  rotationBorrar: 180
   popUpInfoMover: {fileID: 1084540199}
   popUpInfoRotar: {fileID: 273652887}
   popUpInfoEliminar: {fileID: 454788315}
