@@ -115,8 +115,8 @@ public class PopUps : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                LeanTween.rotateY(objetoCreadoDeVerdad, objetoCreadoDeVerdad.transform.rotation.y + rotationBorrar, 2f).setEase(animCreaObjet);
-                    LeanTween.scale(objetoCreadoDeVerdad, Vector3.one * 0.1f, 2f).setEase(animCreaObjet).setOnComplete(() => {
+                LeanTween.rotateY(objetoSeleccionado, objetoSeleccionado.transform.rotation.y + rotationBorrar, 2f).setEase(animCreaObjet);
+                    LeanTween.scale(objetoSeleccionado, Vector3.one * 0.1f, 2f).setEase(animCreaObjet).setOnComplete(() => {
                           Destroy(objetoSeleccionado);
                     });
                 //vaAEliminar = false;
