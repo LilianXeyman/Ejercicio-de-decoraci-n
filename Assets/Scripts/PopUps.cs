@@ -137,7 +137,7 @@ public class PopUps : MonoBehaviour
             if (Input.GetMouseButtonUp(1))
             {
                 vaAMover = false;
-                LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion).setOnComplete(() =>
+                LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() =>
                 {
                     LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
                     popUpInfoMover.SetActive(false);
