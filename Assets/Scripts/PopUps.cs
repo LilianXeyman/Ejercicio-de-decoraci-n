@@ -30,6 +30,8 @@ public class PopUps : MonoBehaviour
     LeanTweenType animCreaObjet;
     [SerializeField]
     float rotationBorrar;
+    [SerializeField]
+    GameObject puntero;
 
     //Aqui se ponen los popUps que se van a emplear como fuente de información
     [SerializeField]
@@ -38,6 +40,8 @@ public class PopUps : MonoBehaviour
     GameObject popUpInfoRotar;
     [SerializeField]
     GameObject popUpInfoEliminar;
+    [SerializeField]
+    GameObject popUpInfoEscalar;
 
     [SerializeField]
     float tiempoAnimacion = 0.5f;
@@ -48,11 +52,16 @@ public class PopUps : MonoBehaviour
     [SerializeField]
     float multiDelV3 = 1f;
 
+    //Variables para las transformaciones
+    float transfScale;
+    float resultadoTransform;
+
     //Bool para saber si se está moviendo un objeto, eliminarlo y rotarlo
     bool moviendoObjeto;
     bool vaAMover = false;
     bool estaRotando = false;
     bool vaAEliminar = false;
+    bool vaAEscalar = false;
 
     void Start()
     {
@@ -61,6 +70,8 @@ public class PopUps : MonoBehaviour
         estaRotando=false;
         vaAEliminar=false;
         popUpMenu1 = true;
+        vaAEscalar = false;
+        puntero.SetActive(false);
     }
 
     // Update is called once per frame
@@ -125,6 +136,18 @@ public class PopUps : MonoBehaviour
         //Este es el Update para Mover los objetos
         if (vaAMover)
         {
+            puntero.SetActive(true);
+            puntero.transform.position = objetoSeleccionado.transform.position-new Vector3(0, 0.48f,0);
+            /*LeanTween.scale(puntero, new Vector3(0.75f,0.01f,0.75f), tiempoAnimacion).setOnComplete(() =>
+            {
+                LeanTween.scale(puntero, new Vector3(1f,0.01f,1f), tiempoAnimacion);
+            });*///Hace que el objeto caiga
+            /*LeanTween.scaleZ(puntero, 0.75f, tiempoAnimacion);
+            LeanTween.scaleX(puntero, 0.75f, tiempoAnimacion).setOnComplete(() =>
+            {
+                LeanTween.scaleX(puntero, 1f, tiempoAnimacion);
+                LeanTween.scaleZ(puntero, 1f, tiempoAnimacion);
+            });*///Al meterle animación de escalado al puntero el objeto se traba.
             objetoSeleccionado.SetActive(false);
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -141,6 +164,46 @@ public class PopUps : MonoBehaviour
                 {
                     LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
                     popUpInfoMover.SetActive(false);
+                });
+                puntero.SetActive(false);
+            }
+        }
+        //Este es el Update para escalar los objetos
+        if (vaAEscalar == true)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 mousePos = Input.mousePosition;
+                {
+                    Debug.Log(mousePos.x);
+                    Debug.Log("esta en y = "+mousePos.y);
+                    transfScale = 1+(mousePos.y -284)* 0.0001f;//Reestablecí el centro de la pantalla como la posicion en y=284. Como no me interesaba que la multiplicacion se hiciera de este número lo que hice fue restarlo al mousePos.y. Desta forma logre que el escalado se hiciera desde el centro de la pantalla. Lo ideal sería que te devolviera la posicion del objeto en Y y de esa forma poder hacerlo automático para que no dependa de que el objeto este en el centro. 
+                    Debug.Log("transfScale = " + transfScale);
+                    if (mousePos.y > 284)
+                    {
+                        objetoSeleccionado.transform.localScale = objetoSeleccionado.transform.localScale*transfScale;
+                        if (objetoSeleccionado.transform.localScale.y >= 1.9f)
+                        {
+                            objetoSeleccionado.transform.localScale=new Vector3(2f,2f,2f);
+                        }
+                    }
+                    if (mousePos.y < 284)
+                    {
+                        objetoSeleccionado.transform.localScale = objetoSeleccionado.transform.localScale * transfScale;
+                        if (objetoSeleccionado.transform.localScale.y <= 0.51f)
+                        {
+                            objetoSeleccionado.transform.localScale=new Vector3(0.5f,0.5f,0.5f);
+                        }
+                    }
+                }
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                vaAEscalar = false;
+                LeanTween.scale(popUpInfoEscalar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() =>
+                {
+                    LeanTween.scale(popUpInfoEscalar, Vector3.one * multiDelV3, tiempoAnimacion);
+                    popUpInfoEscalar.SetActive(false);
                 });
             }
         }
@@ -165,6 +228,11 @@ public class PopUps : MonoBehaviour
                 LeanTween.scale(popUpInfoRotar, Vector3.one * multiDelV3, tiempoAnimacion);
                 popUpInfoRotar.SetActive(false);
             });
+            LeanTween.scale(popUpInfoEscalar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() =>
+            {
+                LeanTween.scale(popUpInfoEscalar, Vector3.one * multiDelV3, tiempoAnimacion);
+                popUpInfoEscalar.SetActive(false);
+            });
             LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() =>
             {
                 LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() =>
@@ -177,6 +245,7 @@ public class PopUps : MonoBehaviour
             vaAEliminar = false;
             estaRotando = false;
             vaAMover = false;
+            vaAEscalar = false;
         }
         else
         {
@@ -328,7 +397,7 @@ public class PopUps : MonoBehaviour
         LeanTween.scale(objetoCreadoDeVerdad, Vector3.one*0.5f, 0f).setEase(animCreaObjet).setOnComplete(() =>{
             LeanTween.scale(objetoCreadoDeVerdad, Vector3.one*multiDelV3, 1f).setEase(animCreaObjet);
         });
-        moviendoObjeto = true;
+        vaAMover = true;
         movimientoInicialObjetos = 0;
         LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() =>{
             LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() =>
@@ -366,5 +435,15 @@ public class PopUps : MonoBehaviour
             LeanTween.scale(popUpInfoMover, Vector3.one * multiDelV3, tiempoAnimacion);
         });
         vaAMover = true;
+    }
+    public void Escalar()
+    {
+        popUpMenu1 = true;
+        LeanTween.moveLocalY(gameObject, 0, 1f).setEase(animeCurv);
+        popUpInfoEscalar.SetActive(true);
+        LeanTween.scale(popUpInfoEscalar, Vector3.one * multiDelV3e, tiempoAnimacion).setOnComplete(() => {
+            LeanTween.scale(popUpInfoEscalar, Vector3.one * multiDelV3, tiempoAnimacion);
+        });
+        vaAEscalar = true;
     }
 }
