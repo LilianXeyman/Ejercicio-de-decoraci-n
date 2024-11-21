@@ -397,7 +397,7 @@ public class PopUps : MonoBehaviour
         LeanTween.scale(objetoCreadoDeVerdad, Vector3.one*0.5f, 0f).setEase(animCreaObjet).setOnComplete(() =>{
             LeanTween.scale(objetoCreadoDeVerdad, Vector3.one*multiDelV3, 1f).setEase(animCreaObjet);
         });
-        //vaAMover = true;
+        vaAMover = true;
         movimientoInicialObjetos = 0;
         LeanTween.moveLocalY(objetos, movimientoInicialObjetos, 1f).setEase(animeCurv).setOnComplete(() =>{
             LeanTween.moveLocalX(popUpCreacionObjetos, 1185, 1f).setEase(animeCurv).setOnComplete(() =>
